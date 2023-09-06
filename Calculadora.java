@@ -1,26 +1,88 @@
 import java.util.Scanner;
 
 public class Calculadora {
-   public static void main(String[] args) {
-   Scanner teclado = new Scanner(System.in);
+  public static void main(String[]args) {
+    Scanner tc = new Scanner (System.in);
+    int op = 0;
+    String nom;
+    double num1 = 0;
+    double num2 = 0;
 
-   System.out.print("Ingrese el primer numero: ");
-   int n1 = teclado.nextInt();
-   System.out.print("Ingrese el segundo numero: ");
-   int n2 = teclado.nextInt();
+    while(op!=6) {
+       System.out.println();
+       System.out.println("|---------------------------------|");
+       System.out.println("|-     Bienvenido/a usuario      -|");
+       System.out.println("|---------------------------------|");
+       System.out.println("|-          1: Suma              -|");
+       System.out.println("|-          2: Resta             -|");
+       System.out.println("|-          3: Multiplicacion    -|");
+       System.out.println("|-          4: Division          -|");
+       System.out.println("|-          6: Salir             -|");
+       System.out.println("|---------------------------------|");
+       System.out.print("--> Elige una opción: ");
+       op = tc.nextInt();
+       System.out.println();
 
-   int suma= n1 + n2;
-   int resta = (n1 - n2);
-   int multiplicacion = n1 * n2;
-   double n1d = n1;
-   double n2d = n2;
-   double division = n1d / n2d;
+    switch (op) {
+       case 1:
+          System.out.print("> Ingrese su primer valor: ");
+          num1 = tc.nextInt();
+          System.out.print("> Ingrese su segundo valor: ");
+          num2 = tc.nextInt();
+          System.out.println("");
+          Suma s = new Suma(num1,num2);
+          System.out.println("|--------------------|");
+          s.mostrarResultado(); 
+          System.out.println("|--------------------|");
+       break;
 
-   System.out.println("");
-   System.out.println("El resultado de la suma es: " + suma);
-   System.out.println("El resultado de la resta es: " + resta);
-   System.out.println("El resultado de la multiplicacion es: " + multiplicacion);
-   System.out.println("El resultado de la division es: " + division);
-   
-   }
-}
+       case 2:    
+          System.out.print("> Ingrese su primer valor: ");
+          num1 = tc.nextInt();
+          System.out.print("> Ingrese su segundo valor: ");
+          num2 = tc.nextInt();
+          System.out.println("");
+          Resta r = new Resta(num1,num2);
+          System.out.println("|--------------------|");
+          r.mostrarResultado();    
+          System.out.println("|--------------------|");
+       break;
+
+       case 3:
+          System.out.print("> Ingrese su primer valor: ");
+          num1 = tc.nextInt();
+          System.out.print("> Ingrese su segundo valor: ");
+          num2 = tc.nextInt();
+          System.out.println("");
+          Producto p = new Producto(num1,num2);
+          System.out.println("|--------------------|");
+          p.mostrarResultado();   
+          System.out.println("|--------------------|");
+       break;
+
+       case 4:        
+          System.out.print("> Ingrese su primer valor: ");
+          num1 = tc.nextInt();
+          System.out.print("> Ingrese su segundo valor: ");
+          num2 = tc.nextInt();
+          System.out.println("");
+          Division d = new Division(num1,num2);
+          System.out.println("|--------------------|");
+          d.mostrarResultado(); 
+          System.out.println("|--------------------|");
+       break;
+
+       case 6:  
+          System.out.println("> |----------------------------------------| <");
+          System.out.println("> |- Hasta luego, espero vuelva pronto :D -| <");
+          System.out.println("> |----------------------------------------| <");      
+       break;
+
+       default:
+          System.out.println("¡Opción incorrecta, por favor vuelva a ingresar!");
+       break;
+
+      } // switch
+    } // while
+  } // main
+} // clase
